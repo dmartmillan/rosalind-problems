@@ -1,0 +1,2 @@
+Bio
+biopython==1.76
