@@ -1,6 +1,8 @@
-<img src="rosalind.jpg"
+<p align="center">
+     <img src="rosalind.jpg"
      alt="ROSALIND"
-     style="float: left; margin-right: 10px;" />
+     style="margin: auto; width: 50%; height: 50%;" />
+</p>
 
 # ROSALIND Problems
 
