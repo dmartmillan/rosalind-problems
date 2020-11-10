@@ -1,3 +1,9 @@
+from Bio import SeqIO
+
+list_DNA = ''
+
+first = True
+
 codon_table = {
     "UUU": "F", "CUU": "L", "AUU": "I", "GUU": "V",
     "UUC": "F", "CUC": "L", "AUC": "I", "GUC": "V",
@@ -17,12 +23,19 @@ codon_table = {
     "UGG": "W", "CGG": "R", "AGG": "R", "GGG": "G"
 }
 
-RNAseq = "AUGGUCUACAUAGCUGACAAACAGCACGUAGCAUCUCGAGAGGCAUAUGGUCACAUGUUCAAAGUUUGCGCCUAG"
+for seq_record in SeqIO.parse("rosalind_splc.txt", "fasta"):
+    if first:
+        list_DNA = str(seq_record.seq)
+        first = False
+    else:
+        listDNA = list_DNA.replace(str(seq_record.seq), '')
 
-protein = ""
+listRNA = list_DNA.replace('T', 'U')
 
-for i in range(0, len(RNAseq), 3):
-    aminoAcid = codon_table[RNAseq[i:i + 3]]
+protein = ''
+
+for i in range(0, len(listRNA), 3):
+    aminoAcid = codon_table[listRNA[i:i + 3]]
     if aminoAcid == "Stop":
         break
     else:
